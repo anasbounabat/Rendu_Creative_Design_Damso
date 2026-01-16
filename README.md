@@ -18,5 +18,7 @@ git clone https://github.com/anasbounabat/Rendu_Creative_Design_Damso
 ## Stack Technique
 
 - HTML5
+- HTML Canvas API
 - CSS3
-- JavaScript
+- Tailwind CSS
+- JavaScript (Vanilla JS)
