@@ -104,24 +104,12 @@ body {
 
 /* Responsive */
 @media (max-width: 768px) {
-    .cover-canvas {
-        max-width: 100%;
+    #coverCanvas {
+        max-width: 90vw;
     }
-    
-    .cover-buttons {
-        flex-direction: column;
-        width: 100%;
-        max-width: 300px;
-    }
-    
+
     .cover-btn {
         width: 100%;
-    }
-}
-
-@media (max-width: 640px) {
-    .sand-stats {
-        grid-template-columns: 1fr;
-        gap: 1rem;
+        max-width: 260px;
     }
 }
