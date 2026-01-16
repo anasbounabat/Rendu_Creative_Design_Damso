@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:,">
+    <title>KŌNGO</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="w-full h-full overflow-x-hidden">
+    <div id="root" class="relative overflow-hidden">
+        <!-- curseur custom qui suit la souris -->
+        <img src="img/OIP-removebg-preview.png" alt="" id="customCursor"
+            class="fixed w-[40px] h-auto pointer-events-none z-[99999] -translate-x-1/2 -translate-y-1/2 transition-all duration-150 ease-out drop-shadow-[0_0_4px_rgba(217,119,6,0.4)] hidden opacity-80">
+
+        <!-- section principale avec le titre et les particules en fond -->
+        <section class="relative h-screen flex items-center justify-center py-20 px-8"
+            style="background: linear-gradient(to bottom, #000 0%, rgba(120, 53, 15, 0.1) 50%, #000 100%);">
+            <canvas id="sandCanvas" class="absolute inset-0 w-full h-full"></canvas>
+            <div class="relative z-10 max-w-4xl mx-auto text-center">
+                <h1 class="text-[clamp(4rem,18vw,14rem)] font-black tracking-[-0.03em] mb-6 leading-[0.95] text-white"
+                    id="glitchText"
+                    style="text-shadow: 0 0 40px rgba(217, 119, 6, 0.3), 4px 4px 0px rgba(234, 88, 12, 0.2);">KŌNGO</h1>
+                <div class="mb-6 text-[rgba(217,119,6,0.6)] text-sm tracking-[0.3em]">CHAPITRE I - CONCEPT</div>
+                <h2 class="text-[clamp(2rem,10vw,3.5rem)] font-bold leading-tight mb-8">
+                    <span class="text-[#d97706]">MÉMOIRE</span>
+                    <br>
+                    <span class="text-white">ET HISTOIRE</span>
+                </h2>
+                <p class="text-gray-400 text-lg leading-relaxed max-w-[32rem] mx-auto mb-8">
+                    album-concept qui explore l'histoire du Congo.
+                    mémoire collective et témoignage artistique.
+                </p>
+            </div>
+        </section>
+
+        <!-- section des covers d'album génératifs -->
+        <section class="relative min-h-screen py-20 px-8 overflow-hidden bg-black">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-16">
+                    <div class="text-[rgba(217,119,6,0.6)] text-sm tracking-[0.3em] mb-4 font-mono uppercase">COVERS
+                    </div>
+                    <h2 class="text-[clamp(2rem,8vw,3rem)] font-bold mb-2 text-white">VARIATIONS</h2>
+                </div>
+                <div class="flex flex-col items-center gap-8 mt-12">
+                    <!-- canvas pour générer les covers -->
+                    <canvas id="coverCanvas"
+                        class="w-full max-w-[500px] aspect-square border-[3px] border-[rgba(217,119,6,0.7)] bg-black transition-all duration-300 shadow-[0_0_80px_rgba(217,119,6,0.6),0_0_120px_rgba(217,119,6,0.4),0_0_160px_rgba(217,119,6,0.2)] cursor-pointer"></canvas>
+                    <div class="flex gap-4 flex-wrap justify-center">
+                        <button
+                            class="cover-btn px-8 py-4 bg-[rgba(217,119,6,0.2)] border-2 border-[#d97706] text-[#fbbf24] font-mono text-sm font-semibold tracking-[0.15em] transition-all duration-300 uppercase min-w-[140px] hover:bg-[rgba(217,119,6,0.1)] hover:border-[#d97706] hover:-translate-y-0.5 hover:shadow-[0_4px_15px_rgba(217,119,6,0.2)] shadow-[0_0_20px_rgba(217,119,6,0.4)]"
+                            data-style="digital">PIXEL</button>
+                        <button
+                            class="cover-btn active px-8 py-4 bg-[rgba(0,0,0,0.6)] border-2 border-[rgba(217,119,6,0.4)] text-[#d97706] font-mono text-sm font-semibold tracking-[0.15em] transition-all duration-300 uppercase min-w-[140px] hover:bg-[rgba(217,119,6,0.1)] hover:border-[#d97706] hover:-translate-y-0.5 hover:shadow-[0_4px_15px_rgba(217,119,6,0.2)]"
+                            data-style="organic">BLOB</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- tracklist avec les 8 chapitres -->
+        <section class="relative min-h-screen py-20 px-8"
+            style="background: linear-gradient(to bottom, #000, #0f172a, #000);">
+            <div class="max-w-4xl mx-auto mb-16 text-center">
+                <div class="mb-6 text-[rgba(217,119,6,0.6)] text-sm tracking-[0.3em]">TRACKLIST</div>
+                <h2 class="text-[clamp(1.875rem,8vw,2.25rem)] font-bold mb-4 text-white">8 CHAPITRES</h2>
+            </div>
+            <div class="max-w-5xl mx-auto mb-16">
+                <div class="track relative flex items-center gap-6 p-6 border-2 border-[rgba(217,119,6,0.4)] shadow-[0_0_20px_rgba(217,119,6,0.2)]"
+                    data-index="0">
+                    <div
+                        class="track-number text-4xl font-bold tracking-[-0.025em] text-[#d97706]">
+                        01</div>
+                    <div class="flex-1">
+                        <div
+                            class="track-title font-bold text-2xl tracking-[0.05em] text-[#d97706]">
+                            INTRO (Kinshasa Nuit)</div>
+                    </div>
+                    <div class="track-duration text-[#dc2626] font-mono text-lg font-semibold">2:34</div>
+                </div>
+                <div class="track relative flex items-center gap-6 p-6 border-2 border-[rgba(217,119,6,0.4)] shadow-[0_0_15px_rgba(217,119,6,0.15)]"
+                    data-index="1">
+                    <div
+                        class="track-number text-4xl font-bold tracking-[-0.025em] text-[#d97706]">
+                        02</div>
+                    <div class="flex-1">
+                        <div
+                            class="track-title font-bold text-2xl tracking-[0.05em] text-[#d97706]">
+                            SABLES ROUGES</div>
+                        <div class="track-featured text-sm text-[#fbbf24] mt-2 font-medium">feat. Kalash Criminel</div>
+                    </div>
+                    <div class="track-duration text-[#dc2626] font-mono text-lg font-semibold">3:45</div>
+                </div>
+                <div class="track relative flex items-center gap-6 p-6 border-2 border-[rgba(217,119,6,0.4)] shadow-[0_0_15px_rgba(217,119,6,0.15)]"
+                    data-index="2">
+                    <div
+                        class="track-number text-4xl font-bold tracking-[-0.025em] text-[#d97706]">
+                        03</div>
+                    <div class="flex-1">
+                        <div
+                            class="track-title font-bold text-2xl tracking-[0.05em] text-[#d97706]">
+                            GUERRE CIVILE</div>
+                    </div>
+                    <div class="track-duration text-[#dc2626] font-mono text-lg font-semibold">4:12</div>
+                </div>
+                <div class="track relative flex items-center gap-6 p-6 border-2 border-[rgba(217,119,6,0.4)] shadow-[0_0_15px_rgba(217,119,6,0.15)]"
+                    data-index="3">
+                    <div
+                        class="track-number text-4xl font-bold tracking-[-0.025em] text-[#d97706]">
+                        04</div>
+                    <div class="flex-1">
+                        <div
+                            class="track-title font-bold text-2xl tracking-[0.05em] text-[#d97706]">
+                            COLTAN</div>
+                    </div>
+                    <div class="track-duration text-[#dc2626] font-mono text-lg font-semibold">3:28</div>
+                </div>
+                <div class="track relative flex items-center gap-6 p-6 border-2 border-[rgba(217,119,6,0.4)] shadow-[0_0_15px_rgba(217,119,6,0.15)]"
+                    data-index="4">
+                    <div
+                        class="track-number text-4xl font-bold tracking-[-0.025em] text-[#d97706]">
+                        05</div>
+                    <div class="flex-1">
+                        <div
+                            class="track-title font-bold text-2xl tracking-[0.05em] text-[#d97706]">
+                            DIAMANTS DE SANG</div>
+                        <div class="track-featured text-sm text-[#fbbf24] mt-2 font-medium">feat. Booba</div>
+                    </div>
+                    <div class="track-duration text-[#dc2626] font-mono text-lg font-semibold">4:01</div>
+                </div>
+                <div class="track relative flex items-center gap-6 p-6 border-2 border-[rgba(217,119,6,0.4)] shadow-[0_0_15px_rgba(217,119,6,0.15)]"
+                    data-index="5">
+                    <div
+                        class="track-number text-4xl font-bold tracking-[-0.025em] text-[#d97706]">
+                        06</div>
+                    <div class="flex-1">
+                        <div
+                            class="track-title font-bold text-2xl tracking-[0.05em] text-[#d97706]">
+                            INTERLUDE (Radio Kōngo)</div>
+                    </div>
+                    <div class="track-duration text-[#dc2626] font-mono text-lg font-semibold">1:45</div>
+                </div>
+                <div class="track relative flex items-center gap-6 p-6 border-2 border-[rgba(217,119,6,0.4)] shadow-[0_0_15px_rgba(217,119,6,0.15)]"
+                    data-index="6">
+                    <div
+                        class="track-number text-4xl font-bold tracking-[-0.025em] text-[#d97706]">
+                        07</div>
+                    <div class="flex-1">
+                        <div
+                            class="track-title font-bold text-2xl tracking-[0.05em] text-[#d97706]">
+                            LIGNES DE FEU</div>
+                    </div>
+                    <div class="track-duration text-[#dc2626] font-mono text-lg font-semibold">3:56</div>
+                </div>
+                <div class="track relative flex items-center gap-6 p-6 border-2 border-[rgba(217,119,6,0.4)] shadow-[0_0_15px_rgba(217,119,6,0.15)]"
+                    data-index="7">
+                    <div
+                        class="track-number text-4xl font-bold tracking-[-0.025em] text-[#d97706]">
+                        08</div>
+                    <div class="flex-1">
+                        <div
+                            class="track-title font-bold text-2xl tracking-[0.05em] text-[#d97706]">
+                            FRONTIÈRES</div>
+                    </div>
+                    <div class="track-duration text-[#dc2626] font-mono text-lg font-semibold">4:23</div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="relative z-10 py-12 text-center border-t border-[rgba(217,119,6,0.3)]">
+            <p class="text-[rgba(217,119,6,0.6)] text-sm tracking-[0.125em]">DAMSO © 2026</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
